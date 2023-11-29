@@ -1,0 +1,66 @@
+<%- include("partials/header.ejs") %>
+<div class="px-4 py-5 my-5 text-center">
+    <h1>You can write your review of your chosen book here.</h1>
+    <p class="mb-5">Please ensure all fields are filled with correct content.</p>
+<form action="/submit" method="POST">
+    <div class="mb-3">
+        <label for="title">Title</label>
+        <textarea class="form-control" name="title" id="title" placeholder="Type here..." required></textarea>
+        <div class="invalid-feedback">
+          Required.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="description">Description</label>
+        <textarea class="form-control" name="description" id="description" placeholder="Type here..." required></textarea>
+        <div class="invalid-feedback">
+          Required.
+        </div>
+    </div>
+    <div class="mb-3">
+      <label for="validationTextarea">Write Review</label>
+      <textarea class="form-control" name="review" id="validationTextarea" placeholder="Type here..." required></textarea>
+      <div class="invalid-feedback">
+        Required.
+      </div>
+    </div>
+    
+    <div class="row mb-5">
+        <div class="form-group col-md-6">
+          <label for="isbn">ISBN(used to fetch book cover)</label>
+          <input type="text" name="isbn" class="form-control" id="isbn" placeholder="ISBN" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="amazonLink">Amazon Link</label>
+          <input type="text" name="link" class="form-control" id="amazonLink" placeholder="Amazon Link" required>
+        </div>
+    </div>
+
+    <div class="form-group mb-5" id="dropdown">
+    <label for="dropdown">Select Rating:</label>
+      <select class="custom-select" name="rating" required>
+        <option value="">Open this select menu</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      <div class="invalid-feedback">Select a rating out of 10.</div>
+    </div>
+    <div class="row justify-content-center mb-5">
+        <div class="form-group col-md-6">
+            <label for="date">Date Read</label>
+            <input type="date" name="readDate" class="form-control" id="date" required>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+</div>
+<%- include("partials/footer.ejs") %>

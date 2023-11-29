@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+<% for (let book of books) { %>
+<div class="px-4 py-5 my-5 text-center">
+    <img class="d-block mx-auto mb-4" src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="" width="150" height="200">
+    <h1 class="display-5 fw-bold text-body-emphasis"><%= book.title %></h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4"><%= book.description %></p>
+      <p>Date read: <%= book.read_date %></p>
+      <p>Rating: <%= book.rating %>/10</p>
+      <a href="<%= book.link %>" class="mb-5">View on Amazon</a>
+      <div class="d-grid gap-2 mt-3 d-sm-flex justify-content-sm-center">
+        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Read Review</button>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <% } %>
+  <%- include("partials/footer.ejs") %>
