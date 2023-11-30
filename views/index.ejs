@@ -8,9 +8,10 @@
       <p>Date read: <%= book.read_date %></p>
       <p>Rating: <%= book.rating %>/10</p>
       <a href="<%= book.link %>" class="mb-5">View on Amazon</a>
-      <div class="d-grid gap-2 mt-3 d-sm-flex justify-content-sm-center">
-        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Read Review</button>
-      </div>
+      <form class="mt-4" action="/read-review" method="POST">
+        <input type="hidden" name="bookId" value="<%= book.id %>">
+        <button type="submit" class="btn btn-primary">Read Review</button>
+    </form>    
     </div>
   </div>
   <hr>

@@ -55,6 +55,19 @@ app.post("/submit", async (req, res) => {
   res.redirect("/");
 });
 
+app.post('/read-review', async (req, res) => {
+  try {
+      const bookId = req.body.bookId;
+      const result = await db.query('SELECT * FROM book_details WHERE id = $1', [bookId]);
+      const bookDetails = result.rows[0];
+      res.render('read_review.ejs', { book: bookDetails });
+  } catch (err) {
+      console.error(err);
+      res.status(500).send('Server error');
+  }
+});
+
+
 app.listen(port, () => {
     console.log(`Server is running on Port ${port}`);
 })
