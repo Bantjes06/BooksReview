@@ -2,7 +2,7 @@
 <% for (let book of books) { %>
 <div class="px-4 py-5 my-5 text-center">
     <img class="d-block mx-auto mb-4" src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="" width="150" height="200">
-    <h1 class="display-5 fw-bold text-body-emphasis"><%= book.title %></h1>
+    <h3 class="display-5 fw-bold text-body-emphasis"><%= book.title %></h3>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4"><%= book.description %></p>
       <p>Date read: <%= book.read_date %></p>
