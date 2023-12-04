@@ -5,7 +5,11 @@
     <h3 class="display-5 fw-bold text-body-emphasis"><%= book.title %></h3>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4"><%= book.description %></p>
-      <p>Date read: <%= book.read_date %></p>
+      <% 
+    let date = new Date(book.read_date); 
+    let formattedDate = date.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+    %>
+    <p>Date read: <%= formattedDate %></p>
       <p>Rating: <%= book.rating %>/10</p>
       <a href="<%= book.link %>" class="mb-5">View on Amazon</a>
       <form class="mt-4" action="/read-review" method="POST">

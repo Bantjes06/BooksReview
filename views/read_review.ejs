@@ -3,7 +3,7 @@
 <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" class="img-thumbnail" alt="book cover">
 <h1 class="mt-2"><%= book.title %></h1>
 <div class="container">
-    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <div class="row justify-content-center row-cols-2 row-cols-lg-5 g-2 g-lg-3">
         <div class="col">
             <p class="p-3">Rating: <%= book.rating %></p>
         </div>
@@ -11,13 +11,15 @@
             <p class="p-3">ISBN: <%= book.isbn %></p>
         </div>
         <div class="col">
-            <p class="p-3">Read Date: <%= book.read_date %></p>
-        </div>
-        <div class="col">
-            <a href="<%= book.link %>" class="p-3">View on Amazon</a>
+            <% 
+                let date = new Date(book.read_date); 
+                let formattedDate = date.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+            %>
+                <p class="p-3">Date read: <%= formattedDate %></p>
         </div>
     </div>
     <p><%= book.review %></p>
+    <a href="<%= book.link %>" class="mb-3">View on Amazon</a>
     <div class="row row-cols-2 mt-3 mb-3">
         <div class="col">
             <form action="/edit" method="POST">
